@@ -11,7 +11,7 @@ ips = [base_ip + str(i) for i in range(last_num, 255)]
 with open("C:/Users/24937/Desktop/ip.txt", "w") as f:
     for ip in ips:
         print(ip)
-        # f.write(ip + "\n")
+        f.write(ip + "\n")
 print('写入成功!!!')
 #
 # print(subprocess.run("ipconfig", capture_output=True, encoding='gbk'))
