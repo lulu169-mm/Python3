@@ -1,0 +1,32 @@
+1、单选题
+
+1-5：	CBCCB
+6-10：	CCDAD			9(ps命令中，a、u、x的作用)		10(如何显示Linux中注册用户数)
+11-15：	ABCDA
+16-20：	BCBCA			18(rpm只更新软件包命令)
+21-25：	BBDBC
+26-30：	ABBAC			30($_GET的作用)	33(后台执行符号)	34(用户过期时间)
+31-35：	ABBDA
+36-40：	CDDAB			
+41-45：	CCCBC			42(组播地址)		45(Windows用户权限)
+46-50：	DACDB			49(搜索二进制文件)
+51-55：	DADBC			51(passwd如何删除用户密码)	52(init参数级别)
+56-60：	CDBBC
+
+2、多选题
+61：AD
+62：BC		//ls -a是否是针对文件的操作
+63：CD
+64：ABD
+65：ABD		//etc/passwd是否包含用户密码
+
+66.
+	net user zhangsan 123456 /add			useradd zhangsan 、passwd zhangsan 
+	net user wangwu /active:no				usermod  -L wangwu
+	net user lisi /del						userdel -r lisi
+
+67.
+	打包：
+		tar -cvzf /tmp/zheng.tar.gz /home/zheng
+	解压：
+		tar -xvzf /tmp/zheng.tar.gz
