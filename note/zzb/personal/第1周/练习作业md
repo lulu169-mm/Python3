@@ -1,0 +1,119 @@
+NS Domian Name System 域名系统 	将域名转换成IP地址   方便记忆
+CDN 内容分发网络 加速资源访问
+ipconfig /displaydns	 		//显示当前DNS解析缓存记录
+ipconfig /flushdns	 			//清除并刷新DNS缓存记录
+ipconfig /registerdns 			//刷新DHCP租约并更新本地DNS名称
+
+net user(net1 user)			//列出当前已存在用户	 		
+
+net user admin 			//查看用户admin的信息
+net user admin Esafe666 /add 			//添加用户admin，并指定密码为Esafe666		 
+net localgroup administrators admin /add 			//将用户admin添加进用户组administrators
+net localgroup administrators admin /del 			//将用户admin从用户组adminnistrators移除
+net user admin /del 			//删除用户admin	
+net localgroup 					//列出本地用户组
+net user guest Esafe666				//修改用户guest的密码为Esafe666
+net user admin 1qaz!QAZ 			//修改用户admin的密码为1qaz!QAZ 
+
+cls	//清屏
+
+administrators | Remote Desktop Users   //组内用户拥有连接RDP的权限
+
+Remote Destop Protocol 远程桌面协议 
+
+netstat -ano | findstr "3389" 			//列出端口号为3389的进程
+
+TermService #远程桌面连接服务
+tasklist /svc | findstr "TermService" //知道目标机器以开启RDP 但是不知道端口
+tasklist /svc | findstr "TermService" #定位RDP的进程PID 1508
+netstat -ano | findstr "1508" #通过PID定位RDP端口
+
+net time \\192.168.1.1			//从192.168.1.1的主机获取时间并同步
+
+net view #查看工作组网络内的其他机器名
+net share 			//查看主机的共享服务信息
+net session #查看连接本机的会话信息
+sc query 	#查看当前机器服务情况
+
+net stop wuauserv 				//停止更新服务
+net start wuauserv 				//开启更新服务
+ping 192.168.179.1  			  //通过icmp协议测试与主机192.168.179.1的连接情况,只测试4次
+ping -n 10 192.168.179.1   		//通过icmp协议测试与主机192.168.179.1的连接情况，只测试10次
+ping -l 65500 192.168.179.1  	//通过icmp协议测试与主机192.168.179.1的连接情况，发送的包大小为65500
+ping -t 192.168.179.1			//通过icmp协议持续测试与主机192.168.179.1的连接情况，除非手动停止
+
+ping -4 localhost #将主机名转换成IP地址发送ping数据包
+
+ICMP Internet Control Message Protocol  互联网消息控制协议 检测主机存活
+
+netstat -ano 			//查看机器端口开放以及端口的PID processID
+netstat -r 				//查看路由表情况 route print 发现或定位内网其他网段
+copy 1.txt 2.txt 			//将1.txt文件重命名为2.txt
+dir | cd | mkdir | rmdir | del | ren | type 
+
+//查看文件信息 | 切换路径 | 创建文件夹 | 删除文件夹 | 删除文件 | 重命名文件 | 查看文件内容
+
+
+
+IIS Internet Information Service 
+IT 信息技术 Information Technology
+
+localhost #本机回环地址的主机名 127.0.0.1 
+0.0.0.0:80  #监听本机所有网卡IP的80端口  可以通过本机的所有网卡IP访问80端口
+127.0.0.1:80 #监听127.0.0.1的80端口 仅本地能够访问80端口
+
+默认web目录		 Apache httpd /var/www/html/	
+
+日志路径
+/var/log/access_log   	#正常访问日志
+/var/log/error_log		#错误日志
+IIS C:\inetpub\wwwroot\ 	默认web目录
+
+netsh firewall show state 					#查看防火墙状态信息
+netsh advfirewall show allprofiles state  #查看防火墙状态信息
+netsh firewall set opmode disable/enable #关闭/打开防火墙
+netsh advfirewall set allprofiles state on/off #打开/关闭防火墙
+
+netsh advfirewall firewall add rule name=demo action=allow protocol=tcp localport=3389 dir=in 		
+
+//新增防火墙入站规则demo，允许tcp协议的流量通过3389端口进
+
+//增加一条入站规则 允许外部IP通过TCP协议连接3389端口
+
+netsh advfirewall firewall delete rule name=demo 
+
+//删除规则demo
+
+netsh advfirewall firewall add rule name=demo action=block protocol=tcp localport=3389 dir=in 
+
+//新增防火墙入站规则demo，阻止tcp协议的流量通过3389端口进入
+
+//增加一条入站规则阻止外部IP通过TCP协议连接3389端口
+
+action = allow|block|bypass			//策略是 允许 | 阻止 | 绕过
+dir = in | out			//是入站规则还是出站规则
+protocol = tcp|udp			//是tcp协议还是udp协议
+
+Linux 防火墙
+systemctl status firewalld			//查看防火墙服务情况
+firewall-cmd --state			//显示防火墙服务当前运行情况
+systemctl enable/disable firewalld 			//开机开启/关闭防火墙服务
+firewall-cmd --get-active-zones 			//查看防火墙活动区域情况
+--add-service={服务名} 						//活动区域允许服务
+--add-port={端口号/协议} 					//活动区域允许端口/协议
+--remove-service={服务名} 				//活动区域禁止服务
+--remove-port={端口号/协议} 			//活动区域禁止端口/协议
+--reload #重载
+--permanent #永久设置
+firewall-cmd --zone=public --add-port=80/tcp --permanent  		//防火墙公共区域永久允许80端口tcp协议的流量通过
+firewall-cmd --reload #重载
+
+firewall-cmd：firewalld命令行工具
+--add-port：			//允许端口通过
+--permanent：表示设置为永久
+--zone：			//设置防火墙区域/指定到具体的zone配置文件
+
+firewall-cmd --zone=public --add-port=10-100/tcp --permanent 			//防火墙公共区域永久允许10-100端口tcp协议的流量通过
+firewall-cmd --reload #重载
+firewall-cmd --zone=public --add-service=http --permanent 				//防火墙公共区域永久允许http服务通过
+firewall-cmd --zone=public --remove-service=http --permanent  			//防火墙公共区域永久禁止http服务通过
