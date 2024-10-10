@@ -38,6 +38,7 @@ print("Game Links:", game_finallink)
 min_length = min(len(game_name), len(game_type), len(game_jpg), len(game_time), len(game_finallink))
 print(f"Minimum length of data lists: {min_length}")
 
+
 # 将数据写入文件
 with open('4399.txt', 'w', encoding='utf-8') as f:
     for i in range(min_length):

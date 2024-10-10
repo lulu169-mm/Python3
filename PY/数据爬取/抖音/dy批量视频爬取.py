@@ -1,3 +1,5 @@
+import os
+
 import requests
 
 headers = {
@@ -62,11 +64,11 @@ params = {
 
 
 response = requests.get('https://www.douyin.com/aweme/v1/web/aweme/post/', params=params, headers=headers)
-# print(response.text)
+print(response.text)
 data_list = response.json().get('aweme_list')
 for i in data_list:
     print(i.get('desc'), i.get('video').get('play_addr').get('url_list')[0])
-
+os.makedirs('./蓝心羽lxy', exist_ok=True)
 # 保存视频
 for i in data_list:
     video_url = i.get('video').get('play_addr').get('url_list')[0]

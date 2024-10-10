@@ -15,7 +15,7 @@ driver = wd.Edge(options=options)
 page = int(input("请输入要下载的页码："))
 
 # 设置图片保存路径
-save_path = "C:/Users/24937/Desktop/webmovie/web/kongbu"
+save_path = "C:/Users/24937/Desktop/图片"
 
 # 创建保存图片的目录
 if not os.path.exists(save_path):

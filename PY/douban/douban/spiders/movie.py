@@ -1,6 +1,6 @@
 import scrapy
-from PY.douban.douban.items import DoubanItem
 
+from douban.douban.items import DoubanItem
 
 
 class MovieSpider(scrapy.Spider):

@@ -19,9 +19,9 @@ res=requests.get(url_sing,headers=headers)
     # f.write(res2.content)
 
 # 合并视频和音频
-from moviepy.editor import *
-vd=VideoFileClip('视频.mp4')
-ad=AudioFileClip('音频.mp4')
-vd2=vd.set_audio(ad)
-vd2.write_videofile('赵露思新片预告.mp4')
+# from moviepy.editor import *
+# vd=VideoFileClip('视频.mp4')
+# ad=AudioFileClip('音频.mp4')
+# vd2=vd.set_audio(ad)
+# vd2.write_videofile('赵露思新片预告.mp4')
 

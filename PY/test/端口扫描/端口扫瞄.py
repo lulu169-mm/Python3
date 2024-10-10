@@ -2,7 +2,7 @@ import socket
 import threading
 
 
-def PortScan(target_ip, start_port=40000, end_port=65535, num_threads=16):
+def PortScan(target_ip, start_port=0, end_port=65535, num_threads=16):
     open_ports = []
     thread_list = []
 
@@ -36,7 +36,7 @@ def PortScan(target_ip, start_port=40000, end_port=65535, num_threads=16):
 
 
 if __name__ == "__main__":
-    target_ip = "192.168.173.205"
+    target_ip = "192.168.1.52"
 
     print(f"开始多线程扫描 {target_ip} 上的端口...")
     open_ports = PortScan(target_ip)
