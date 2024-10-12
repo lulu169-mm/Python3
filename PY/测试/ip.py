@@ -13,24 +13,24 @@ with open("C:/Users/24937/Desktop/ip2.txt", "w") as f:  # TODO:这里用w实现�
         f.write(ip + "\n")
 print('写入成功 >_<')
 
-# TODO:把需要的用到的命令写入到列表,可以自定义
-cmds = [
-    'nmap -iL C:\\Users\\24937\\Desktop\\ip2.txt -p 80,8080,22,3306,6379,3389,1433,445 -sV -O',
-    'fscan.exe -hf C:\\Users\\24937\\Desktop\\ip2.txt -p 80,8080,22,3306,6379,3389,1433,445',
-    'sqlmap -u "www.baidu.com" --batch --random-agent --threads 10 --level 3 --risk 3 --banner --dbs --batch',
-    'D:\\naabu\\naabu.exe -host 192.168.41.145 -p 1-65535',
-    'D:\\masscan\\masscan.exe --ports 1-65535 192.168.41.145'
-]
-# TODO:使用多线程,这里用subprocess,因为os不好用,容易卡
-threads = []
-for cmd in cmds:
-    # TODO:这里使用了个匿名函数lamda,把cmd传进去
-    thread = threading.Thread(target=lambda c=cmd: subprocess.run(c, shell=True, check=True))
-    threads.append(thread)
-    thread.start()
-for thread in threads:
-    thread.join()
-print("所有命令执行完毕 >_<")
+# # TODO:把需要的用到的命令写入到列表,可以自定义
+# cmds = [
+#     'nmap -iL C:\\Users\\24937\\Desktop\\ip2.txt -p 80,8080,22,3306,6379,3389,1433,445 -sV -O',
+#     'fscan.exe -hf C:\\Users\\24937\\Desktop\\ip2.txt -p 80,8080,22,3306,6379,3389,1433,445',
+#     'sqlmap -u "www.baidu.com" --batch --random-agent --threads 10 --level 3 --risk 3 --banner --dbs --batch',
+#     'D:\\naabu\\naabu.exe -host 192.168.41.145 -p 1-65535',
+#     'D:\\masscan\\masscan.exe --ports 1-65535 192.168.41.145'
+# ]
+# # TODO:使用多线程,这里用subprocess,因为os不好用,容易卡
+# threads = []
+# for cmd in cmds:
+#     # TODO:这里使用了个匿名函数lamda,把cmd传进去
+#     thread = threading.Thread(target=lambda c=cmd: subprocess.run(c, shell=True, check=True))
+#     threads.append(thread)
+#     thread.start()
+# for thread in threads:
+#     thread.join()
+# print("所有命令执行完毕 >_<")
 
 
 

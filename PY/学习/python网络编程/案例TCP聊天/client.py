@@ -1,8 +1,8 @@
 import socket
 
 s = socket.socket()
-host = '服务器的IP地址'  # 例如 '192.168.1.5'
-port = 8888
+host = '192.168.71.254'  # 例如 '192.168.1.5'
+port = 4444
 s.connect((host, port))
 print('连接服务器成功')
 print('***提示，如果要退出，请输入esc后回车。\r\n')
@@ -12,7 +12,7 @@ while True:
     s.send(send_data.encode())
     if send_data == 'esc':
         break
-    if send_data != 'esc':  # Avoid receiving if we're quitting
+    if send_data != 'esc':
         info = s.recv(1024).decode()
         print('服务器说：' + info)
 

