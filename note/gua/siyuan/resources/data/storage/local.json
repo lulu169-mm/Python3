@@ -1,0 +1,65 @@
+{
+  "local-codelang": "bash",
+  "local-exportpdf": {
+    "keepFold": false,
+    "landscape": false,
+    "marginBottom": 1,
+    "marginLeft": 0.54,
+    "marginRight": 0.54,
+    "marginTop": 1,
+    "marginType": "default",
+    "mergeSubdocs": false,
+    "pageSize": "A4",
+    "removeAssets": true,
+    "scale": 1
+  },
+  "local-exportword": {
+    "mergeSubdocs": false,
+    "removeAssets": true
+  },
+  "local-fontstyles": [
+    "color​var(--b3-font-color9)",
+    "color​var(--b3-font-color12)",
+    "clear​undefined",
+    "backgroundColor​var(--b3-font-background9)",
+    "backgroundColor​var(--b3-font-background2)",
+    "style1​var(--b3-card-warning-background)​var(--b3-card-warning-color)",
+    "color​var(--b3-font-color8)",
+    "fontSize​12px"
+  ],
+  "local-searchkeys": {
+    "col": "",
+    "colTab": "",
+    "keys": [
+      "",
+      "#​注意#",
+      "user-",
+      "Options",
+      "xml",
+      "#​” 用来查看URL中带有#",
+      "0806",
+      "input",
+      "补码",
+      "修复",
+      "filter",
+      "fileter",
+      "密码",
+      "UDP",
+      "ttl",
+      "外部",
+      "ssrf",
+      "AJAX",
+      "A",
+      "条件",
+      "img",
+      "fopen",
+      "#​shell.txthttp://192.168.172.130nnchttp://192.168.172.130/include.php?file=compress.zlib://shell.zip#"
+    ],
+    "layout": 0,
+    "layoutTab": 0,
+    "replaceKeys": [],
+    "row": "",
+    "rowTab": ""
+  },
+  "local-zoom": 1
+}
