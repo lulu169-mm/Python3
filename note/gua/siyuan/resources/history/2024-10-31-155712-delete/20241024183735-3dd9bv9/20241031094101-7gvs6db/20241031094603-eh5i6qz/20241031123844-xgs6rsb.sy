@@ -1,1 +1,0 @@
-{"ID":"20241031123844-xgs6rsb","Spec":"1","Type":"NodeDocument","Properties":{"id":"20241031123844-xgs6rsb","title":"cacls c:\\windows\\system32\\*.* T E G administrators:F","updated":"20241031123844"},"Children":[{"ID":"20241031123844-p06y4ug","Type":"NodeParagraph","Properties":{"id":"20241031123844-p06y4ug","updated":"20241031123844"}}]}
