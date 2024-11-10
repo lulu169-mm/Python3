@@ -5,7 +5,7 @@ from colorama import Fore, Style, init
 # 初始化 colorama
 init(autoreset=True)
 
-base_url = "http://192.168.100.40:50267/Less-8/"
+base_url = "http://8.137.60.154:8082/Less-8/"
 base_str = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
             'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7',

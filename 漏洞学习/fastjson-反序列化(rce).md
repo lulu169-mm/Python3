@@ -140,7 +140,7 @@ Content-Length: 0
 ```bash
 1.首先开启http服务器,并将恶意类放在目录下
 2.开启恶意的RMI服务器
-3.攻击者控制url参数为上一步开启俄rmi服务器地址
+3.攻击者控制url参数为上一步开启rmi服务器地址
 4.恶意rmi服务器返回referencewrapper类
 5.目标(jnid client)在执行lookup操作时候,在decodeObject中将referenceWrapper变成Reference类,然后远程加载并实例化我们的factory类(即远程加载我们http服务器上的恶意类),在实例化时触发静态代码片段中的恶意代码
 ```

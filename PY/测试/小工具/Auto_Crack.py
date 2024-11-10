@@ -10,7 +10,7 @@ YELLOW = '\033[93m'  # 黄色
 RESET = '\033[0m'  # 重置颜色
 CYAN = '\033[96m'
 
-print(f"{GREEN}------把回忆拼好丢了------{RESET}")
+print(f"{RED}------把回忆拼好丢了------{RESET}")
 print(fr'''{CYAN} _    __  ____   __   ____                  
 | |   \ \/ /\ \ / /  / ___|  ___ __ _ _ __  
 | |    \  /  \ V /___\___ \ / __/ _` | '_ \ 
@@ -109,7 +109,7 @@ def bruteforce_directories_for_ip(ip, port, directories, status_codes_to_show):
 
 
 # 生成IP地址
-base_ip = "192.168.71."
+base_ip = "192.168.62."
 ips = generate_ips(base_ip)
 
 # 使用多线程扫描开放的端口

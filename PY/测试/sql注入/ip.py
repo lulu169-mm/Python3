@@ -7,7 +7,7 @@ last_num = int(base_ip.rsplit('.', 1)[-1])  # TODO:获取最后一个数字 *
 base_ip = base_ip.rsplit('.', 1)[0] + '.'  # TODO:获取除了最后一个数字的部分 192.168.71. 然后进行拼接得到新的ip
 ips = [base_ip + str(i) for i in range(last_num, 255)]
 # TODO:写入文件
-with open("C:/Users/24937/Desktop/ip2.txt", "w") as f:  # TODO:这里用w实现覆盖,避免重复运行时ip重复
+with open("C:/Users/24937/Desktop/ip.txt", "w") as f:  # TODO:这里用w实现覆盖,避免重复运行时ip重复
     for ip in ips:
         print(ip)
         f.write(ip + "\n")

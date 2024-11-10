@@ -7,7 +7,7 @@ RED = '\033[91m'  # 红色
 YELLOW = '\033[93m'  # 黄色
 RESET = '\033[0m'  # 重置颜色
 
-base_url = 'http://113.45.142.235:8090/'
+base_url = 'http://192.168.71.6/'
 
 # 允许用户输入想要显示的状态码类型，多个状态码用逗号分隔
 status_codes_input = input("请输入你想显示的状态码 (用逗号分隔，例如: 200,404,500): ")
@@ -18,7 +18,7 @@ with open('dir.txt', 'r', encoding='utf-8') as f:
     directories = f.readlines()
 
 # 使用 ThreadPoolExecutor 进行多线程处理
-with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=500) as executor:
     # 提交任务到线程池
     futures = {executor.submit(requests.get, base_url + directory.strip().lstrip('/'), timeout=5): directory for
                directory in directories}
